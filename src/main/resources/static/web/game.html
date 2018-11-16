@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.js"></script>
+  <link rel="stylesheet" href="styles/game.css" type="text/css">
+  <title> Galactica Alliance </title>
+</head>
+
+<body class="module darken">
+
+  <div class="logo-title"><img src="assets/Cylons-basestar.jpg" alt="cylons_title" width="40%" height="80px"></div>
+
+
+  <audio id="audio-player" autoplay src="audio/Merged_Battl_Bear-_DRADU_Tie-f_22-_05-A_02-_Victo_Epic-_U-1_a_D_SMI_Bouwa.mp3"></audio>
+  <div class="musicplayer">
+    <div class="musicicon">
+      <h6><span>MUSIC OPTIONAL</span></h6>
+    </div>
+    <div class="toggle">
+      <div class="on">ON</div>
+      <div class="off">OFF</div>
+      <div class="slide"></div>
+    </div>
+  </div>
+
+
+
+  <div class="stars">
+    <div class="twinkling">
+      <div class="clouds">
+
+        <div id="main">
+
+          <div class="back">
+            <a href="games.html"><button type="button" class="btn btn-link">Back</button></a>
+          </div>
+
+          <div id="ships" v-show="placing">
+
+            <button class="seal" onclick="show('showGalactica');"><img  src="assets/bsg_seal.png" alt="battlestar_seal" width="38px" height="38px"></button>
+            <button class="cylon-seal" onclick="show('showCylons');"><img  src="assets/cylonlogo.png" alt="cylon_seal" width="38px" height="38px"></button>
+
+
+            <button id="clear" type="button" onClick="history.go(0)" value="Refresh">Clear Fleet</button>
+
+            <div id="showGalactica" class="showGalactica">
+              <div class="ship1">
+                Galactica:
+                <div class="shipcontainer" id="containercontainer" ondrop="drop(event,this )" ondragover="allowDrop(event)">
+                  <img src="assets/Colonial_Battlestar.jpg" draggable="true" ondragstart="drag(event)" id="galactica" @click="rotateShip('galactica')" class="normal">
+                </div>
+              </div>
+              <div class="ship2">
+                Brimir:
+                <div class="shipcontainer" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="assets/Brimir.png" draggable="true" ondragstart="drag(event)" id="brimir" @click="rotateShip('brimir')" class="normal">
+                </div>
+              </div>
+              <div class="ship3">
+                Pegasus:
+                <div class="shipcontainer" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/Guardian-a.png" draggable="true" ondragstart="drag(event)" id="pegasus" @click="rotateShip('pegasus')" class="normal"></div>
+              </div>
+              <div class="ship4">
+                Viper:
+                <div class="shipcontainer" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/starwars.jpeg" draggable="true" ondragstart="drag(event)" id="viper" @click="rotateShip('viper')" class="normal"></div>
+              </div>
+              <div class="ship5">
+                Raptor:
+                <div class="shipcontainer" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/bg_viper.gif" draggable="true" ondragstart="drag(event)" id="raptor" @click="rotateShip('raptor')" class="normal"></div>
+              </div>
+              
+            </div>
+
+
+            <div id="showCylons">
+
+
+              <div class="ship1">
+                cylonBaseStar:
+                <div class="container" id="containercontainer" ondrop="drop(event,this )" ondragover="allowDrop(event)">
+                  <img src="assets/baseStar-02.png" draggable="true" ondragstart="drag(event)" id="cylonBaseStar" @click="rotateShip('cylonBaseStar')" class="normal">
+                </div>
+              </div>
+              <div class="ship2">
+                BaseStar:
+                <div class="container" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="assets/starship9.png" draggable="true" ondragstart="drag(event)" id="baseStar" @click="rotateShip('baseStar')" class="normal">
+                </div>
+              </div>
+              <div class="ship3">
+                Surtur:
+                <div class="container" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/cylons1.png " draggable="true" ondragstart="drag(event)" id="surtur" @click="rotateShip('surtur')" class="normal"></div>
+              </div>
+              <div class="ship4">
+                Liche:
+                <div class="container" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/liche.png" draggable="true" ondragstart="drag(event)" id="liche" @click="rotateShip('liche')" class="normal"></div>
+              </div>
+              <div class="ship5">
+                Raider:
+                <div class="container" ondrop="drop(event,this)" ondragover="allowDrop(event)"><img src="assets/Cylon_Raider_No_3.png" draggable="true" ondragstart="drag(event)" id="raider" @click="rotateShip('raider')" class="normal"></div>
+              </div>
+            </div>
+          </div>
+
+          <h5><img src="assets/Battlestar_Galactica.jpg" alt="cylon_kill" width="60px" height="60px">{{usernames[1]}}</h5>
+
+          <div class="endGame-Status">
+            <h6 v-if="shooting == false" class="gameState"><img src="" alt="">Game Status:{{status}}</h6>
+          </div>
+
+          <div class="turn-status">
+            <h6 v-if="shooting == false" class="waitingMessage"><span><i>Turn Status:{{message}}</i></span></h6>
+          </div>
+
+
+          <div class="left-table">
+
+
+            <table class="table">
+
+              <div class="radar" v-show="placing == false">
+                <div class="pointer"></div>
+                <div class="shadow"></div>
+              </div>
+              <tr>
+                <th></th>
+                <th v-for="column in columns"> {{column}} </th>
+              </tr>
+              <tr v-for="row in rows">
+                <th> {{row}} </th>
+                <td v-for="column in columns" v-bind:id="'ship ' + row+column" class="shipTable" ondrop="drop(event, this)" ondragover="allowDrop(event)" class="droptarget"></td>
+              </tr>
+              <div>
+
+              </div>
+            </table>
+
+          </div>
+
+
+          <div class="right-table" v-show="placing == false">
+
+
+            <table id="salvoTableTotal" class="table">
+
+              <tr>
+                <th></th>
+                <th v-for="column in columns"> {{column}} </th>
+
+              </tr>
+              <tr v-for="row in rows">
+                <th> {{row}} </th>
+                <td v-for="column in columns" v-bind:id="'salvo ' + row+column" class="salvoTable" @click="placeShot(row+column)"></td>
+              </tr>
+              <div>
+
+              </div>
+            </table>
+
+          </div>
+
+          <div class="rightSideButtons">
+            <button @click="logout" class="waves-effect waves-light btn red">Log out</button>
+
+            <button @click="makeShipJSON" v-show="placing" class="waves-effect waves-light btn-lg" id="launchFleet">Launch Fleet</button>
+
+            <button @click="sendSalvo" class="waves-effect waves-light btn-lg" id="fireBtn" v-show="placing == false">Fire</button>
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <script src="scripts/game.js"></script>
+</body>
+
+</html>

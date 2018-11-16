@@ -1,0 +1,385 @@
+body {
+    font-family: 'Black Ops One', cursive;
+    background-image: url("../assets/eye-of-god.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+.title-logo img {
+    top: 0;
+    margin-left: 26%;
+    width: 700px;
+    height: 200px;
+    background-color: transparent;
+
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+.ship-logo img {
+    position: absolute;
+    margin-top: 26px;
+    margin-left: 40%;
+    width: 160px;
+    height: 160px;
+    background-color: transparent;
+
+    display: block;
+    position: relative;
+    z-index: -1000;
+}
+
+.alliance-side {
+    position: absolute;
+    top: 5px;
+    margin-left: 86%;
+}
+
+.cylon-side {
+    position: absolute;
+    top: 5px;
+    margin-left: 91%;
+}
+
+.card-panel {
+    background-color: rgba(33, 33, 33, 0.9);
+    margin-top: 180px;
+    margin-left: 35%;
+    width: 450px;
+    height: 300px;
+    z-index: 1024;
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 5%;
+
+}
+
+h5 {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: transparent;
+    padding: 20px;
+    color: white;
+}
+
+.seal {
+    width: 80px;
+    height: 80px;
+}
+
+#username {
+    color: #f8f7ff;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+#password {
+    color: #f8f7ff;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 90%
+}
+
+
+h5 {
+    text-align: center;
+    background-color: transparent;
+    padding: 10px;
+    /*    border-bottom: 2px solid #f8f7ff ;*/
+    color: #f8f7ff;
+    margin-top: 240px;
+}
+
+
+#games {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    position: relative;
+    /*    height: 100%*/
+}
+
+#scores {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    position: relative;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+
+}
+table{
+  margin-top: 10px;
+}
+
+#scoresAndGames {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0px;
+    height: 115%;
+    text-align: center;
+
+}
+
+
+#gameContainer,
+#scoreContainer {
+    background-color: rgba(33, 33, 33, 0.9);
+    opacity: 0.8;
+    width: 100%;
+    overflow-X: hidden;
+    overflow-Y: scroll;
+    height: 30%;
+    margin-top: 0px;
+    color: #f8f7ff;
+    text-align: center;
+}
+
+
+
+.versus {
+    font-size: 1.4em;
+}
+
+.gameButton {
+    width: 15%
+}
+
+
+td {
+    width: 35%;
+    text-align: center;
+}
+
+th {
+    color: #131c22;
+    text-align: center;
+    background: transparent;
+  border-bottom: 2px solid #f8f7ff; 
+    background-repeat: no-repeat;
+   color: #f0cb35; 
+}
+
+.gamesInfo {
+  color: #f8f7ff;
+  border-bottom: 2px solid #f8f7ff;
+ 
+}
+
+.gamePlayer {
+    font-size: 1.2em;
+/*    color: #131c22;*/
+  color: #f0cb35;
+
+}
+
+input {
+    font-family: 'Black Ops One', cursive;
+    color: #799f0c;
+}
+
+
+.inputs {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+
+.loginButtons {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+#createBtn {
+    position: absolute;
+    top: 5px;
+    margin-left: 91%;
+}
+
+#logOutBtn {
+    position: absolute;
+    top: 5px;
+    margin-left: 5px;
+}
+
+
+/*
+#loginBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 33%
+}
+
+#formAndButtons {
+
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 20px
+}
+*/
+
+button {
+    width: 160px;
+    margin: 10px;
+    font-family: 'Black Ops One', cursive;
+}
+
+button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b', GradientType=0);
+    background-color: #bc3315;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/*==========Red Clouds=============*/
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-webkit-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-moz-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-ms-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-webkit-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-moz-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-ms-keyframes move-clouds-back {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+.stars,
+.twinkling,
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: 0;
+
+}
+
+.twinkling {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png)repeat top center;
+    z-index: 1;
+
+
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    z-index: 3;
+
+
+    -moz-animation: move-clouds-back 200s linear infinite;
+    -ms-animation: move-clouds-back 200s linear infinite;
+    -o-animation: move-clouds-back 200s linear infinite;
+    -webkit-animation: move-clouds-back 200s linear infinite;
+    animation: move-clouds-back 200s linear infinite;
+}

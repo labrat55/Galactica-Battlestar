@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.js"></script>
+  <link rel="stylesheet" href="styles/games.css" type="text/css">
+  <title> Games </title>
+</head>
+
+<body>
+
+  <header class="title-logo"><img src="https://cdn.shopify.com/s/files/1/0346/5761/files/battlestar_galactica_logo_3.png?v=1516990463"></header>
+
+
+
+  <div id="main">
+
+
+    <div class="stars">
+      <div class="twinkling">
+        <div class="clouds">
+
+          <div class="card-panel" v-if="userLoggedIn== false">
+
+
+            <div id="formAndButtons">
+
+              <div id="loginBox">
+                <div class="inputs">
+                  <label><input class="form-control input" id="username" type="text" name="username" placeholder="Username"></label>
+                  <label><input class="form-control input" id="password" type="text" name="password" placeholder="Password"></label>
+                </div>
+                <div class="field center">
+
+                  <button @click="login" v-if="userLoggedIn==false" class="waves-effect waves-light btn red">Log In</button>
+                  <button @click="createPlayer" class="waves-effect waves-light btn red">Sign Up</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--
+                     <div class="cylon-side"> 
+            <a class="waves-effect waves-light btn-lg" @click="createCylon()"><img src="assets/cylonlogo.png" alt="cylon_side" width="60px" height="60px"></a>
+          </div>
+             
+              <div class="alliance-side"> 
+            <a  class="waves-effect waves-light btn-lg" @click="createAlliance()"><img src="assets/bsg_seal.png" alt="alliance_seal" width="60px" height="60px"></a>
+          </div>
+-->
+
+          <!--             <h5 v-if="userLoggedIn" ><img class="seal" src="assets/cylonlogo.png" alt="cylons_seal">{{usernames[1]}}</h5>    -->
+
+          <button id="createBtn" @click="createGame" class="waves-effect waves-light btn red" v-if="userLoggedIn">Create Game</button>
+
+          <button id="logOutBtn" @click="logout" v-if="userLoggedIn" class="waves-effect waves-light btn red">Log Out</button>
+
+          <div class="ship-logo" v-if="userLoggedIn==false"><img src="assets/Battlestar_Galactica.png"></div>
+
+          <audio id="my_audio" src="audio/02 - Main Title (US Version).mp3" loop="loop"></audio>
+          
+          
+          <div id="scoresAndGames">
+
+            <div id="scores" v-if="userLoggedIn">
+
+              <h5>Player Rankings</h5>
+              <div id="scoreContainer">
+
+                <table class="table">
+                  <thead>
+                    <th>Player</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Ties</th>
+                    <th>Total Score</th>
+                  </thead>
+                  <tbody>
+                    <tr v-for="player in scoreData">
+                      <td>{{player.player}}</td>
+                      <td>{{player.wins}}</td>
+                      <td>{{player.losses}}</td>
+                      <td>{{player.ties}}</td>
+                      <td>{{player.totalscore}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="games" v-if="userLoggedIn">
+
+              <h5>Games</h5>
+              <div id="gameContainer">
+                <table class="table table-striped table-dark">
+                  <tr class="gamesInfo">
+                    <td><span class="gamePlayer">Player 1</span></td>
+                    <td></td>
+                    <td><span class="gamePlayer">Player 2</span></td>
+                    <td> </td>
+                  </tr>
+                  <tr v-for="game in gamesList">
+                    <td>{{ game.player1}} </td>
+                    <td class="versus">vs</td>
+                    <td>{{game.player2}}</td>
+                    <td class="gameButton">
+                      <button class="waves-effect waves-light btn red" v-show="game.gameLink != 0" @click="goToGamePage(game.gameLink)">Enter</button> <button class="waves-effect waves-light btn red" @click="joinGame(game.game)" v-show="game.numberOfPlayers <2 && userLoggedIn && game.player1 != gameData.player.username ">Join</button></td>
+                  </tr>
+
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/games.js"></script>
+</body>
+
+</html>
